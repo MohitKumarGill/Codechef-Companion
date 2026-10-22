@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mohitkumargill.github.io/Codechef-Companion/sitemap.xml
