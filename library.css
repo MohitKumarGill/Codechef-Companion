@@ -1,0 +1,157 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: grid; grid-template-columns: 300px 1fr;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a; background: #f8fafc;
+}
+
+#sidebar {
+  display: flex; flex-direction: column;
+  background: #ffffff; border-right: 1px solid #e2e8f0;
+  min-height: 100vh;
+}
+.brand {
+  display: flex; gap: 10px; align-items: center;
+  padding: 16px 16px 12px;
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
+  color: #fff;
+}
+.logo {
+  width: 34px; height: 34px; border-radius: 8px;
+  object-fit: cover; background: #05070d; flex-shrink: 0;
+}
+.name { font-weight: 600; font-size: 14px; }
+.tag { font-size: 11px; opacity: .8; }
+
+.search { padding: 10px 12px; }
+.search input {
+  width: 100%; padding: 8px 10px; border: 1px solid #e2e8f0;
+  border-radius: 8px; font-size: 13px; background: #f8fafc;
+}
+.filters { padding: 0 12px 10px; }
+.filters select {
+  width: 100%; padding: 7px 10px; border-radius: 8px;
+  border: 1px solid #e2e8f0; font-size: 12px; background: #f8fafc;
+}
+
+.list { list-style: none; margin: 0; padding: 0 8px; overflow-y: auto; flex: 1; }
+.list li {
+  padding: 10px; margin-bottom: 6px;
+  border: 1px solid #eef2f7; border-radius: 10px;
+  cursor: pointer; background: #fff;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.list li:hover { background: #f8fafc; }
+.list li.active { border-color: #7c3aed; background: #f5f3ff; }
+.list .row1 { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.list .p-title { font-weight: 600; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.list .p-code { font-size: 11px; color: #64748b; font-family: ui-monospace, monospace; }
+.list .badge {
+  font-size: 10px; padding: 2px 6px; border-radius: 999px;
+  background: #ede9fe; color: #5b21b6; text-transform: uppercase;
+}
+.list .badge.solved { background: #d1fae5; color: #065f46; }
+.list .badge.attempted { background: #fef3c7; color: #92400e; }
+.list .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.list .tags span {
+  font-size: 10px; padding: 1px 6px; border-radius: 999px;
+  background: #eef2f7; color: #475569;
+}
+
+.sidebar-footer { padding: 10px 12px 14px; }
+.sidebar-footer button {
+  width: 100%; padding: 10px; border-radius: 8px;
+  border: 1px solid #e2e8f0; background: #f8fafc;
+  cursor: pointer; font-size: 13px; font-family: inherit;
+}
+.sidebar-footer button.primary { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+
+#detail { padding: 24px; overflow-y: auto; }
+.empty { max-width: 460px; margin: 80px auto; text-align: center; color: #64748b; }
+.empty h2 { color: #0f172a; margin: 0 0 8px; }
+
+#editor { max-width: 980px; margin: 0 auto; }
+.editor-head { display: flex; gap: 10px; margin-bottom: 10px; }
+.title-input {
+  flex: 1; font-size: 22px; font-weight: 700; border: none;
+  background: transparent; padding: 4px 0; outline: none;
+}
+.code-input {
+  width: 140px; font-family: ui-monospace, monospace; font-size: 13px;
+  border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; background: #fff;
+}
+.editor-meta {
+  display: grid; grid-template-columns: 2fr 1fr 2fr; gap: 10px; margin-bottom: 12px;
+}
+.editor-meta input, .editor-meta select {
+  padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 8px;
+  font-size: 13px; background: #fff; font-family: inherit;
+}
+
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+.toolbar button {
+  padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px;
+  background: #fff; cursor: pointer; font-size: 13px; font-family: inherit;
+}
+.toolbar button:hover { background: #f8fafc; }
+.toolbar button.primary { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+.toolbar button.danger { color: #b91c1c; border-color: #fecaca; }
+.saved-at { font-size: 11px; color: #94a3b8; margin-left: auto; }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid #e2e8f0; margin-bottom: 14px; }
+.tabs button {
+  background: transparent; border: none; padding: 10px 14px;
+  font-size: 13px; cursor: pointer; color: #64748b;
+  border-bottom: 2px solid transparent; font-family: inherit;
+}
+.tabs button.active { color: #7c3aed; border-bottom-color: #7c3aed; font-weight: 600; }
+
+.tab-panel { display: flex; flex-direction: column; gap: 10px; }
+.tab-panel label { font-size: 12px; color: #64748b; }
+textarea {
+  width: 100%; min-height: 90px; padding: 10px 12px;
+  border: 1px solid #e2e8f0; border-radius: 10px;
+  font-size: 13px; font-family: inherit;
+  background: #fff; resize: vertical;
+}
+#f-statement { min-height: 220px; }
+#f-solution { min-height: 320px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.solution-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.solution-bar select {
+  padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 8px;
+  background: #fff; font-family: inherit;
+}
+.solution-bar button {
+  padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 8px;
+  background: #fff; cursor: pointer; font-family: inherit;
+}
+
+#samples-container { display: flex; flex-direction: column; gap: 10px; }
+.sample { border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; background: #fff; }
+.sample-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 6px; font-size: 12px; color: #64748b;
+}
+.sample-head button {
+  background: transparent; border: none; color: #b91c1c; cursor: pointer; font-size: 12px;
+}
+.sample .io { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sample textarea { min-height: 90px; font-family: ui-monospace, monospace; }
+
+#add-sample {
+  align-self: flex-start; padding: 8px 12px;
+  border: 1px dashed #cbd5e1; border-radius: 8px;
+  background: transparent; cursor: pointer; font-size: 13px;
+  color: #475569; font-family: inherit;
+}
+#add-sample:hover { background: #f8fafc; }
+
+.lang-tab {
+  padding: 4px 8px; border: 1px solid #e2e8f0; border-radius: 6px;
+  background: #fff; cursor: pointer; font-family: inherit; font-size: 12px;
+}
+.lang-tab.active { background: #7c3aed; color: #fff; border-color: #7c3aed; font-weight: 600; }
+.solution-bar .label { font-size: 12px; color: #64748b; margin-right: 4px; }
+.solution-hint { font-size: 11px; color: #94a3b8; margin: 6px 0 0; }

@@ -1,0 +1,74 @@
+{
+  "manifest_version": 3,
+  "name": "CodeChef Companion",
+  "version": "1.5.0",
+  "description": "Copy CodeChef problems into your IDE, save solutions locally, and paste back.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "unlimitedStorage",
+    "downloads",
+    "contextMenus",
+    "tabs",
+    "clipboardRead"
+  ],
+  "host_permissions": [
+    "https://www.codechef.com/*",
+    "https://api.openai.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CodeChef Companion",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.codechef.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.codechef.com/*"],
+      "js": ["editor-bridge.js"],
+      "all_frames": true,
+      "run_at": "document_idle",
+      "world": "MAIN"
+    }
+  ],
+  "commands": {
+    "paste-clipboard-to-editor": {
+      "suggested_key": { "default": "Ctrl+Shift+V", "mac": "Command+Shift+V" },
+      "description": "Paste clipboard into CodeChef editor"
+    },
+    "auto-paste-best": {
+      "suggested_key": { "default": "Ctrl+Shift+A", "mac": "Command+Shift+A" },
+      "description": "Auto-paste the best matching saved solution"
+    },
+    "ask-chatgpt": {
+      "suggested_key": { "default": "Ctrl+Shift+G", "mac": "Command+Shift+G" },
+      "description": "Ask ChatGPT to solve the current problem"
+    }
+  },
+  "options_ui": {
+    "page": "settings.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["library.html", "library.css", "library.js", "db.js", "editor-bridge.js", "icons/icon16.png", "icons/icon48.png", "icons/icon128.png"],
+      "matches": ["https://www.codechef.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

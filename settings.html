@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CodeChef Companion · Settings</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <main>
+    <h1>CodeChef Companion — Settings</h1>
+
+    <section>
+      <h2>ChatGPT integration</h2>
+      <p class="muted">
+        By default, <strong>🤖 Ask ChatGPT</strong> opens ChatGPT in a new tab with the problem already
+        pasted into the prompt. You press Enter there, copy the code, and paste it back with 📋.
+        This works with your free ChatGPT account — no key required.
+      </p>
+
+      <label class="row">
+        <input type="checkbox" id="useAPI" />
+        <span>Use OpenAI API directly (skip the browser, auto-paste the result)</span>
+      </label>
+
+      <div id="api-settings" hidden>
+        <label>
+          <span>OpenAI API key</span>
+          <input id="apiKey" type="password" placeholder="sk-..." autocomplete="off" />
+        </label>
+        <label>
+          <span>Model</span>
+          <select id="model">
+            <option value="gpt-4o-mini">gpt-4o-mini (cheapest, fast)</option>
+            <option value="gpt-4o">gpt-4o (stronger)</option>
+            <option value="gpt-4.1-mini">gpt-4.1-mini</option>
+            <option value="gpt-4.1">gpt-4.1</option>
+            <option value="o4-mini">o4-mini (reasoning)</option>
+          </select>
+        </label>
+        <p class="warn">
+          ⚠️ Your key is stored in this browser's extension storage only. It is sent to
+          <code>api.openai.com</code> and nowhere else. Each problem costs roughly
+          $0.001–$0.01 depending on the model and problem length. You can revoke the key
+          at <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a>.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Toolbar position</h2>
+      <p class="muted">If the CodeChef toolbar ended up somewhere you can't reach, reset it here.</p>
+      <button id="reset-pos">Reset toolbar position</button>
+    </section>
+
+    <section>
+      <h2>Data</h2>
+      <p class="muted">All your saved problems are stored locally in this browser.</p>
+      <button id="wipe-mirror" class="danger">Clear mirror (keeps IndexedDB)</button>
+      <button id="wipe-all" class="danger">Delete all saved data</button>
+    </section>
+
+    <div id="status"></div>
+  </main>
+  <script src="settings.js"></script>
+</body>
+</html>

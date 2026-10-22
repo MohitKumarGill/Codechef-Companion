@@ -1,0 +1,63 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0; width: 320px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111827; background: #ffffff;
+}
+header {
+  display: flex; gap: 10px; align-items: center;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #5b21b6, #7c3aed); color: #fff;
+}
+.logo {
+  width: 34px; height: 34px; border-radius: 8px;
+  object-fit: cover; background: #05070d; flex-shrink: 0;
+}
+h1 { font-size: 14px; margin: 0; font-weight: 600; }
+.sub { font-size: 11px; margin: 0; opacity: .8; }
+
+.actions { padding: 12px; display: grid; gap: 8px; }
+.actions button {
+  padding: 10px 12px; border-radius: 8px; border: 1px solid #e5e7eb;
+  background: #f9fafb; font-size: 13px; cursor: pointer; text-align: left;
+  font-family: inherit;
+}
+.actions button:hover { background: #f3f4f6; }
+.actions button.primary { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+.actions button.primary:hover { background: #6d28d9; }
+.actions button.accent { background: #10b981; color: #fff; border-color: #10b981; font-weight: 700; }
+.actions button.accent:hover { background: #059669; border-color: #059669; }
+.actions button.gpt { background: #10a37f; color: #fff; border-color: #10a37f; font-weight: 700; }
+.actions button.gpt:hover { background: #0e8c6d; }
+
+.hint { padding: 0 12px 8px; }
+.hint p { margin: 0; font-size: 11px; color: #6b7280; }
+.hint kbd {
+  background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 4px;
+  padding: 0 4px; font-family: ui-monospace, monospace; font-size: 10px;
+}
+
+.recent { padding: 0 12px 8px; }
+.recent h2 {
+  font-size: 11px; text-transform: uppercase; color: #6b7280;
+  margin: 6px 0; letter-spacing: .04em;
+}
+.recent ul { list-style: none; margin: 0; padding: 0; max-height: 220px; overflow-y: auto; }
+.recent li {
+  padding: 8px 10px; border-radius: 8px; font-size: 12px;
+  border: 1px solid #eef2f7; margin-bottom: 6px; cursor: pointer;
+  display: flex; justify-content: space-between; gap: 8px; align-items: center;
+}
+.recent li:hover { background: #f9fafb; }
+.recent li .title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent li .badge {
+  font-size: 10px; padding: 2px 6px; border-radius: 999px;
+  background: #ede9fe; color: #5b21b6; text-transform: uppercase; letter-spacing: .04em;
+}
+.recent li.empty { cursor: default; color: #9ca3af; font-style: italic; border: none; }
+footer {
+  padding: 8px 12px; border-top: 1px solid #f3f4f6; min-height: 28px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+#status { font-size: 11px; color: #059669; }
+#open-settings { text-decoration: none; color: #7c3aed; font-size: 16px; cursor: pointer; }

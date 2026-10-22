@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CodeChef Companion · Library</title>
+  <link rel="stylesheet" href="library.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="brand">
+      <img class="logo" src="icons/icon48.png" alt="CodeChef Companion" />
+      <div>
+        <div class="name">CodeChef Companion</div>
+        <div class="tag">Local Problem Library</div>
+      </div>
+    </div>
+
+    <div class="search">
+      <input id="search" type="search" placeholder="Search title, code, tags…" />
+    </div>
+
+    <div class="filters">
+      <select id="filter-status">
+        <option value="">All statuses</option>
+        <option value="unsolved">Unsolved</option>
+        <option value="attempted">Attempted</option>
+        <option value="solved">Solved</option>
+      </select>
+    </div>
+
+    <ul id="problem-list" class="list"></ul>
+
+    <div class="sidebar-footer">
+      <button id="new-problem" class="primary">+ New problem</button>
+    </div>
+  </aside>
+
+  <main id="detail">
+    <div id="empty" class="empty">
+      <h2>No problem selected</h2>
+      <p>Pick a problem on the left, or open any CodeChef problem page and click <strong>Save to Library</strong>.</p>
+    </div>
+
+    <form id="editor" hidden>
+      <div class="editor-head">
+        <input id="f-title" class="title-input" placeholder="Problem title" />
+        <input id="f-code" class="code-input" placeholder="Code (e.g. FLOW001)" />
+      </div>
+
+      <div class="editor-meta">
+        <input id="f-url" placeholder="CodeChef URL" />
+        <select id="f-status">
+          <option value="unsolved">Unsolved</option>
+          <option value="attempted">Attempted</option>
+          <option value="solved">Solved</option>
+        </select>
+        <input id="f-tags" placeholder="tags, comma-separated" />
+      </div>
+
+      <div class="toolbar">
+        <button type="button" id="save-btn" class="primary">Save changes</button>
+        <button type="button" id="download-btn">Download bundle</button>
+        <button type="button" id="paste-btn">Paste to CodeChef</button>
+        <button type="button" id="open-url-btn">Open on CodeChef</button>
+        <button type="button" id="delete-btn" class="danger">Delete</button>
+        <span id="saved-at" class="saved-at"></span>
+      </div>
+
+      <div class="tabs">
+        <button type="button" data-tab="statement" class="active">Statement</button>
+        <button type="button" data-tab="solution">Solution</button>
+        <button type="button" data-tab="notes">Notes</button>
+        <button type="button" data-tab="samples">Samples</button>
+      </div>
+
+      <div class="tab-panel" data-panel="statement">
+        <textarea id="f-statement" placeholder="Paste the problem statement here…"></textarea>
+        <label>Constraints</label>
+        <textarea id="f-constraints" placeholder="Constraints"></textarea>
+        <div class="two-col">
+          <div><label>Input format</label><textarea id="f-input"></textarea></div>
+          <div><label>Output format</label><textarea id="f-output"></textarea></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="solution" hidden>
+        <div class="solution-bar">
+          <span class="label">Per-language solutions:</span>
+          <button type="button" class="lang-tab active" data-lang="cpp">C++</button>
+          <button type="button" class="lang-tab" data-lang="python">Python</button>
+          <button type="button" class="lang-tab" data-lang="java">Java</button>
+          <button type="button" class="lang-tab" data-lang="javascript">JavaScript</button>
+          <button type="button" id="copy-solution">Copy</button>
+          <button type="button" id="paste-solution-btn">Paste to CodeChef</button>
+        </div>
+        <textarea id="f-solution" class="code" placeholder="Your solution goes here (per language — click a language tab above)…"></textarea>
+        <p class="solution-hint">Each language keeps its own code. When you press “Paste to CodeChef” or “⚡ Auto-paste”, the extension picks the one matching the editor’s current language.</p>
+      </div>
+
+      <div class="tab-panel" data-panel="notes" hidden>
+        <textarea id="f-notes" placeholder="Personal notes, approach ideas, pitfalls…"></textarea>
+      </div>
+
+      <div class="tab-panel" data-panel="samples" hidden>
+        <div id="samples-container"></div>
+        <button type="button" id="add-sample">+ Add sample</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="db.js"></script>
+  <script src="library.js"></script>
+</body>
+</html>
