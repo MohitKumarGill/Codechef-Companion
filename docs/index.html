@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeChef Companion — Browser Extension for Competitive Programmers</title>
+  <meta name="description" content="Chrome & Brave extension for CodeChef: copy problems to your IDE, save solutions locally, paste back with one click, and ask ChatGPT. Local-only, no tracking." />
+  <meta name="keywords" content="CodeChef, competitive programming, Chrome extension, CodeChef companion, DSA, ChatGPT" />
+  <link rel="canonical" href="https://mohitkumargill.github.io/Codechef-Companion/" />
+
+  <meta property="og:title" content="CodeChef Companion — Browser Extension" />
+  <meta property="og:description" content="Copy CodeChef problems to your IDE, save solutions, paste back with one click." />
+  <meta property="og:url" content="https://mohitkumargill.github.io/Codechef-Companion/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Search Console verification tag goes here after you set it up -->
+  <!-- <meta name="google-site-verification" content="..." /> -->
+
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 1.5rem; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+    h1 { color: #f59e0b; font-size: 2rem; }
+    a.btn { display: inline-block; background: #f59e0b; color: #0f172a; padding: .7rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin: .3rem 0; }
+    a.btn.outline { background: transparent; color: #f59e0b; border: 1px solid #f59e0b; }
+    code { background: #1e293b; padding: .1rem .4rem; border-radius: 4px; }
+    ul { padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <h1>🍳 CodeChef Companion</h1>
+  <p><strong>A Chrome / Brave extension that makes CodeChef practice smoother.</strong></p>
+
+  <p>
+    <a class="btn" href="https://github.com/MohitKumarGill/Codechef-Companion">View on GitHub</a>
+    <a class="btn outline" href="https://github.com/MohitKumarGill/Codechef-Companion#install-from-source">Install (from source)</a>
+  </p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>📋 <strong>Copy the problem</strong> (statement, constraints, samples) to your IDE in one click.</li>
+    <li>💾 <strong>Save problems & solutions locally</strong>, per language, with tags and status.</li>
+    <li>📥 <strong>Paste code back</strong> into CodeChef's editor from your clipboard or saved library.</li>
+    <li>🤖 <strong>Ask ChatGPT</strong> to solve the current problem (web UI or optional OpenAI API key).</li>
+    <li>🖱️ Draggable toolbar · ⌨️ <code>Ctrl+Shift+V</code> paste · <code>Ctrl+Shift+G</code> ask ChatGPT.</li>
+  </ul>
+
+  <h2>Privacy</h2>
+  <p>No backend, no accounts, no tracking. Everything stays in your browser's
+  <code>IndexedDB</code> and <code>chrome.storage.local</code>.
+  The only outbound call is to <code>api.openai.com</code> — and only if you supply your own API key.</p>
+
+  <h2>Install (from source)</h2>
+  <ol>
+    <li><code>git clone https://github.com/MohitKumarGill/Codechef-Companion.git</code></li>
+    <li>Open <code>chrome://extensions</code> (or <code>brave://extensions</code>)</li>
+    <li>Enable <strong>Developer mode</strong></li>
+    <li>Click <strong>Load unpacked</strong> → select the cloned folder</li>
+  </ol>
+  <p>Then open any <code>https://www.codechef.com/problems/&lt;CODE&gt;</code> page. A floating panel appears bottom-right.</p>
+
+  <p><em>Compatible with Chrome 120+ and Brave 1.60+. Not for Firefox. Use for practice only — not in rated contests.</em></p>
+</body>
+</html>
