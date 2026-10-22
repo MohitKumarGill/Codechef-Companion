@@ -1,4 +1,4 @@
-# CodeChef Companion
+# CodeChef Companion — Browser Extension for CodeChef (Copy, Save, Paste, AI)
 
 A Chrome / Brave extension that makes CodeChef practice smoother:
 
